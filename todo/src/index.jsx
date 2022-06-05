@@ -1,12 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
+import React from 'react';
+import {
+  createRoot
+} from 'react-dom/client';
 import ToDO from './ToDO';
 
-ReactDOM.render(
+
+const rootContainer = document.getElementById('root');
+const root = createRoot(rootContainer);
+
+root.render(
   <React.StrictMode>
     <ToDO />
   </React.StrictMode>,
-  document.getElementById('root')
-);
-
+)
