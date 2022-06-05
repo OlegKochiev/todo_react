@@ -9,8 +9,8 @@ function ToDO() {
     <div>
       <h1 className="sr-only">To do</h1>
       <div className="to-do">
-        <ToDoItem />
-        <ToDoItem />
+        <ToDoItem todoItemName={'High'} />
+        <ToDoItem todoItemName={'Low'} />
       </div>
     </div>
   )

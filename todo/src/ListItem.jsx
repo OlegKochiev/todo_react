@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function ListItem(props) {
   return (
-    <li className="to-do__item" id="1">
+    <li key={props.key} className="to-do__item" id="1">
       <label className="to-do__checkbox-wrapper">
         <input type="checkbox" className="to-do__task-checkbox"></input>
         <span></span>
