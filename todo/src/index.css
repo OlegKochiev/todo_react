@@ -96,7 +96,7 @@ body {
   overflow: hidden
 }
 
-.to-do {
+.to-do__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -202,7 +202,7 @@ body {
   margin-bottom: 12px
 }
 
-.to-do__item {
+.list__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

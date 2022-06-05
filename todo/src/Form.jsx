@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Form(props) {
 
   const handleSubmit = function (e) {
@@ -23,9 +21,11 @@ function Form(props) {
         htmlFor="inputHigh">
         {props.todoItemName}
       </label>
+
       <div
         className="form__inner"
         id="highPriority">
+
         <input
           className="form__input"
           id="inputHigh"
@@ -33,6 +33,7 @@ function Form(props) {
           onChange={handleInputChange}
           placeholder="Добавить важных дел">
         </input>
+
         <button
           className="form__add-btn"
           id="btnHigh"
