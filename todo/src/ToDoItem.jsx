@@ -7,23 +7,18 @@ import List from "./List";
 
 function ToDoItem(props) {
   const taskListStorage = props.taskList;
-  const [taskName, setTaskName] = useState('');
   const [tasksList, setTasksList] = useState([]);
 
-  const handleChange = function (taskName) {
-    setTaskName(taskName);
-  };
-
-  const handleSubmit = function (task) {
+  const handleSubmit = function (taskName) {
     taskListStorage.addTask(taskName);
-    setTasksList(taskListStorage.list)
+    setTasksList(taskListStorage.list);
+    console.log(taskListStorage.list);
   }
 
   return (
     <div className="to-do__item">
       <Form
         handleSubmit={handleSubmit}
-        handleChange={handleChange}
         todoItemName={props.todoItemName}
       />
       <List

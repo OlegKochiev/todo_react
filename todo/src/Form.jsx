@@ -1,13 +1,19 @@
+import {
+  useState
+} from "react";
+
 function Form(props) {
 
+  const [taskName, setTaskName] = useState('');
+
   const handleSubmit = function (e) {
-    props.handleSubmit();
     e.preventDefault();
+    props.handleSubmit(taskName);
   }
 
   const handleInputChange = function (e) {
     const taskName = e.target.value;
-    props.handleChange(taskName);
+    setTaskName(taskName);
   }
 
   return (

@@ -1,8 +1,4 @@
 import {
-  useState
-} from "react";
-
-import {
   LIST_NAME
 } from "./const";
 

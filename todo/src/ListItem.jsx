@@ -1,6 +1,11 @@
 function ListItem(props) {
+
+  const handleDelete = function () {
+
+  }
+
   return (
-    <li className="list__item" id={props.index}>
+    <li className="list__item" id={props.taskIndex}>
       <label className="to-do__checkbox-wrapper">
         <input type="checkbox" className="to-do__task-checkbox"></input>
         <span></span>
@@ -11,4 +16,4 @@ function ListItem(props) {
   )
 }
 
-export default ListItem;
+export default ListItem; 
