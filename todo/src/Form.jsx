@@ -4,16 +4,22 @@ import {
 
 function Form(props) {
 
+  const [clearInput, setClearInput] = useState('')
   const [taskName, setTaskName] = useState('');
 
   const handleSubmit = function (e) {
     e.preventDefault();
     props.handleSubmit(taskName);
+    handleInputClear();
   }
 
   const handleInputChange = function (e) {
     const taskName = e.target.value;
     setTaskName(taskName);
+  }
+
+  const handleInputClear = function (params) {
+    setTaskName('');
   }
 
   return (
@@ -37,7 +43,8 @@ function Form(props) {
           id="inputHigh"
           type="text"
           onChange={handleInputChange}
-          placeholder="Добавить важных дел">
+          placeholder="Добавить важных дел"
+          value={taskName}>
         </input>
 
         <button
