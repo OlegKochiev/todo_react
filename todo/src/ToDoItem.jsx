@@ -6,13 +6,12 @@ import Form from "./Form";
 import List from "./List";
 
 function ToDoItem(props) {
-  const taskListStorage = props.taskList;
   const [tasksList, setTasksList] = useState([]);
 
   const handleSubmit = function (taskName) {
-    taskListStorage.addTask(taskName);
-    setTasksList(taskListStorage.list);
-    console.log(taskListStorage.list);
+    const newTasksList = tasksList.slice();
+    newTasksList.push(taskName);
+    setTasksList(newTasksList);
   }
 
   return (
