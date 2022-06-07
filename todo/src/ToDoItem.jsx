@@ -4,16 +4,12 @@ import {
 
 import Form from "./Form";
 import List from "./List";
-import TasksList from "./TasksList";
-const tasksStorage = new TasksList();
 
-function ToDoItem(props) {
+function ToDoItem({ todoItemName }) {
   const [tasksList, setTasksList] = useState([]);
 
   const handleSubmit = function (taskName) {
-    const newTasksList = tasksList.slice();
-    newTasksList.push(taskName);
-    setTasksList(newTasksList);
+    setTasksList([...tasksList, taskName]);
   }
 
   const handleDeleteButton = function (taskID) {
@@ -25,7 +21,7 @@ function ToDoItem(props) {
     <div className="to-do__item">
       <Form
         handleSubmit={handleSubmit}
-        todoItemName={props.todoItemName}
+        todoItemName={todoItemName}
       />
 
       <List

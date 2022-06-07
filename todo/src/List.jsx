@@ -1,14 +1,14 @@
 import ListItem from "./ListItem";
 
-function List(props) {
+function List({ tasksList, handleDeleteButton }) {
   return (
     <ul className="to-do__list list"> {
-      props.tasksList.map((taskName, index) => (
+      tasksList.map((taskName, index) => (
         <ListItem
           key={index}
           taskID={index}
           taskName={taskName}
-          handleDeleteButton={props.handleDeleteButton}
+          handleDeleteButton={handleDeleteButton}
         />
       ))
     } </ul>

@@ -2,14 +2,12 @@ import {
   useState
 } from "react";
 
-function Form(props) {
-
-  const [clearInput, setClearInput] = useState('')
+function Form({ handleSubmit, todoItemName }) {
   const [taskName, setTaskName] = useState('');
 
-  const handleSubmit = function (e) {
+  const handleSubmitForm = function (e) {
     e.preventDefault();
-    props.handleSubmit(taskName);
+    handleSubmit(taskName);
     handleInputClear();
   }
 
@@ -26,12 +24,12 @@ function Form(props) {
     <form
       className="to-do__form-high form"
       action="#"
-      onSubmit={handleSubmit}>
+      onSubmit={handleSubmitForm}>
 
       <label
         className="form__title"
         htmlFor="inputHigh">
-        {props.todoItemName}
+        {todoItemName}
       </label>
 
       <div

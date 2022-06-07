@@ -1,18 +1,13 @@
 
-function ListItem(props) {
-
-
-
-  const handleDeleteButton = function (e) {
-    const taskID = props.taskID
-    props.handleDeleteButton(taskID);
+function ListItem({ handleDeleteButton, taskIndex, taskName, taskID }) {
+  const handleDeleteButtonForm = function (e) {
+    handleDeleteButton(taskID);
   }
-
 
   return (
     <li
       className="list__item"
-      id={props.taskIndex}>
+      id={taskIndex}>
 
       <label
         className="to-do__checkbox-wrapper">
@@ -27,13 +22,13 @@ function ListItem(props) {
 
       <p
         className="to-do__task-desc">
-        {props.taskName}
+        {taskName}
       </p>
 
       <button
         type="button"
         className="to-do__del-btn"
-        onClick={handleDeleteButton}>
+        onClick={handleDeleteButtonForm}>
       </button>
     </li>
   )
