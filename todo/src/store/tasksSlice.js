@@ -11,15 +11,18 @@ const tasksReducer = createSlice({
         priority: action.payload.priority,
         completed: false
       }
+      if (task.task === '') {
+        return;
+      }
       state.push(task);
     },
     delTask: function (state, action) {
       const id = action.payload.id;
-      return state.filter(task => task.id !== id)
+      return state.filter(task => task.id !== id);
+
     },
     changeTaskStatus: function (state, action) {
       const id = action.payload.id;
-      console.log(id);
       state = state.map((task) => {
         if (task.id === id) {
           task.completed = !task.completed;
