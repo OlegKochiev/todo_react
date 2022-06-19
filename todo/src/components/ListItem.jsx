@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { delTask } from '../store/tasksSlice';
+import { changeTaskStatus, delTask } from '../store/tasksSlice';
 
 
-function ListItem({ id, task, status }) {
+function ListItem({ id, task, completed }) {
 
   const dispatch = useDispatch();
-  const [taskStatus, setTaskStatus] = useState(status);
+  const [taskStatus, setTaskStatus] = useState(completed);
 
   const handleDeleteTask = function () {
     dispatch(
@@ -16,8 +16,14 @@ function ListItem({ id, task, status }) {
     );
   }
 
-  const handleChangeTaskStatus = () => {
-
+  const handleChangeTaskStatus = (e) => {
+    const isChecked = e.target.checked;
+    dispatch(
+      changeTaskStatus({
+        id
+      })
+    );
+    setTaskStatus(!taskStatus);
   }
 
   return (
@@ -30,7 +36,8 @@ function ListItem({ id, task, status }) {
 
         <input
           type="checkbox"
-          checked={status}
+          checked={taskStatus}
+          onChange={handleChangeTaskStatus}
           className="to-do__task-checkbox">
         </input>
 

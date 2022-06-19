@@ -16,9 +16,19 @@ const tasksReducer = createSlice({
     delTask: function (state, action) {
       const id = action.payload.id;
       return state.filter(task => task.id !== id)
+    },
+    changeTaskStatus: function (state, action) {
+      const id = action.payload.id;
+      console.log(id);
+      state = state.map((task) => {
+        if (task.id === id) {
+          task.completed = !task.completed;
+        }
+        return task;
+      });
     }
   }
 });
 
-export const { addTask, delTask } = tasksReducer.actions;
+export const { addTask, delTask, changeTaskStatus } = tasksReducer.actions;
 export default tasksReducer.reducer;

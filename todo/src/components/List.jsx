@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 function List({ priority }) {
   const tasksList = useSelector(store => store.tasks);
-  console.log(tasksList);
   const tasksListFiltered = tasksList.filter((task) => {
     return task.priority === priority
   });
