@@ -1,6 +1,7 @@
 import {
-  LIST_NAME
-} from "./const";
+  LIST_NAME,
+  PROIRITY
+} from "../const";
 
 import ToDoItem from "./ToDoItem";
 
@@ -11,10 +12,12 @@ function ToDO() {
 
       <div className="to-do">
         <ToDoItem
+          taskPriority={PROIRITY.HIGH}
           todoItemName={LIST_NAME.HIGH}
         />
 
         <ToDoItem
+          taskPriority={PROIRITY.LOW}
           todoItemName={LIST_NAME.LOW}
         />
       </div>

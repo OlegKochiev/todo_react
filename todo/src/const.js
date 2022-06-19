@@ -6,8 +6,14 @@ const LIST_NAME = {
   LOW: 'Low'
 }
 
+const PROIRITY = {
+  HIGH: 'HIGH',
+  LOW: 'LOW'
+}
+
 export {
   tasksListHigh,
   tasksListLow,
-  LIST_NAME
+  LIST_NAME,
+  PROIRITY
 }

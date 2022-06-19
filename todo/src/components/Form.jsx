@@ -1,23 +1,30 @@
-import {
-  useState
-} from "react";
+import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { addTask } from "../store/tasksSlice";
 
-function Form({ handleSubmit, todoItemName }) {
-  const [taskName, setTaskName] = useState('');
+
+function Form({ todoItemName, taskPriority }) {
+  const [task, setTask] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmitForm = function (e) {
     e.preventDefault();
-    handleSubmit(taskName);
+    dispatch(
+      addTask({
+        task,
+        priority: taskPriority
+      })
+    );
     handleInputClear();
   }
 
   const handleInputChange = function (e) {
-    const taskName = e.target.value;
-    setTaskName(taskName);
+    const task = e.target.value;
+    setTask(task);
   }
 
   const handleInputClear = function (params) {
-    setTaskName('');
+    setTask('');
   }
 
   return (
@@ -42,7 +49,7 @@ function Form({ handleSubmit, todoItemName }) {
           type="text"
           onChange={handleInputChange}
           placeholder="Добавить важных дел"
-          value={taskName}>
+          value={task}>
         </input>
 
         <button
