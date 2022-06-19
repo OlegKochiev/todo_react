@@ -1,7 +1,23 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { delTask } from '../store/tasksSlice';
 
-function ListItem({ id, task, priority, status }) {
+
+function ListItem({ id, task, status }) {
+
+  const dispatch = useDispatch();
+  const [taskStatus, setTaskStatus] = useState(status);
+
   const handleDeleteTask = function () {
-    // handleDeleteButton(id);
+    dispatch(
+      delTask({
+        id
+      })
+    );
+  }
+
+  const handleChangeTaskStatus = () => {
+
   }
 
   return (

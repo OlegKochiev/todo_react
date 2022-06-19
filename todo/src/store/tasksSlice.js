@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import store from "./store";
 
 const tasksReducer = createSlice({
   name: 'tasks',
@@ -15,7 +14,8 @@ const tasksReducer = createSlice({
       state.push(task);
     },
     delTask: function (state, action) {
-      console.log(action);
+      const id = action.payload.id;
+      return state.filter(task => task.id !== id)
     }
   }
 });
